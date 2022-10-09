@@ -43,9 +43,9 @@
 				Services <i class="fa fa-caret-down"></i>
 			</button>
 			<div class="subnav-content">
-				<a href="#deliver">Buy Products</a> <a href=""
-					th:href="@{/order_sell}">Sell Products</a> <a href=""
-					th:href="@{/items}">Add New Products</a>
+				<a href="" th:href="@{/purchase_item}">Buy Products</a>
+                <a href="" th:href="@{/order_sell}">Sell Products</a>
+                <a href="" th:href="@{/items}">Add New Products</a>
 			</div>
 		</div>
 		<div class="subnav">
@@ -74,24 +74,28 @@
 	<br>
 	<div class="container">
 		<div class="row">
+			<div class="col-lg-3">
+				<a th:href="@{/logout}" class="btn btn-primary btn-sm mb-3">Logout</a>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
 			<div
 				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
 				<h1 class="text-center">Create New Order</h1>
 				<div class="card-body">
 					<form th:action="@{/order}" th:object="${order}" method="POST">
-						 <div class="form-group">
-							<label for="dropdown">Select Item</label> 
-							<select  style="width: 100%; height: 35px;"
-								th:field="*{itemCode}">
-								
-							<option value=0 disabled="disabled">please select the product</option>
-								<option th:each="item: ${map}" 
-								    th:value="${item.value}"
-									th:text="${item.key}" 
-									>
-								</option>
-							</select> 
-							
+						<div class="form-group">
+							<label for="dropdown">Select Item</label> <select
+								style="width: 100%; height: 35px;" th:field="*{itemCode}">
+
+								<option value=0 disabled="disabled">please select the
+									product</option>
+								<option th:each="item: ${map}" th:value="${item.value}"
+									th:text="${item.key}"></option>
+							</select>
+
 						</div>
 
 						<div class="form-group">
@@ -108,15 +112,19 @@
 
 
 						<div class="box-footer">
-							<button type="submit" class="btn btn-primary">Submit</button>
-
+							<button type="submit" onclick="myFunction()" class="btn btn-primary">Submit</button>
+							<script>
+								function myFunction() {
+  								alert("Order has Placed Successfully");
+								}
+								</script>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 </body>
 
 </html>

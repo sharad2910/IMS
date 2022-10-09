@@ -4,13 +4,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @Controller
-public class maincontoller{
+public class Maincontoller{
 	
 	
 	@GetMapping("/order_sell")
 	public String orderhome() {
 		return "order_sell";
 	}
+	@GetMapping("/purchase_item")
+	public String purchasehome() {
+		return "purchase_item";
+	}
+
 
 	@GetMapping("/steel")
 	public String steelhome() {

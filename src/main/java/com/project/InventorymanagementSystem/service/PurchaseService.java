@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.project.InventorymanagementSystem.entity.Item;
-import com.project.InventorymanagementSystem.entity.PurchaseItem;
+import com.project.InventorymanagementSystem.entity.Purchase;
 import com.project.InventorymanagementSystem.repository.PurchaseRepository;
 
 @Service
@@ -17,25 +17,25 @@ public class PurchaseService {
 @Autowired
 private ItemService itemService;
 	
-public PurchaseItem placePurchase(PurchaseItem purchaseItem)
+public Purchase placePurchase(Purchase purchase)
 	{
-		Item item=itemService.getItemById(purchaseItem.getItemCode());
-		System.out.println("before Update item: "+item);
+		Item item=itemService.getItemById(purchase.getItemCode());
+		
 		
 		//@TODO: validation required for check the available quantity it greater than order quantity
 		
 		try {
-			item.setAvailableQuantity(item.getAvailableQuantity()+purchaseItem.getQuantity());
+			item.setAvailableQuantity(item.getAvailableQuantity()+ purchase.getQuantity());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("after Update item: "+item);
+		
 		itemService.updateItem(item);
-		return purchaseRepository.save(purchaseItem);
+		return purchaseRepository.save(purchase);
 	}
 	
 	
-	 public Map<String,Long> getNameAndCode()
+	 public Map<String,Long> getNameCode()
 	 {
 		  return itemService.getAllItems().stream().collect(Collectors.toMap(value->value.getItemName(), value->value.getItemCode()));
 	 }

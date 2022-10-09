@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.project.InventorymanagementSystem.entity.PurchaseItem;
+import com.project.InventorymanagementSystem.entity.Purchase;
 import com.project.InventorymanagementSystem.service.ItemService;
 import com.project.InventorymanagementSystem.service.PurchaseService;
 
@@ -19,25 +19,26 @@ public class PurchaseController {
     @Autowired
     private ItemService itemService;
 	
-	@PostMapping("/purchaseItem")
-	public String placePurchase(@ModelAttribute PurchaseItem purchaseItem)
+	@PostMapping("/purchase")
+	public String placePurchase(@ModelAttribute Purchase purchase)
 	{ 
-		System.out.println("purchase details: "+purchaseItem);
-		purchaseService.placePurchase(purchaseItem);
+		
+		purchaseService.placePurchase(purchase);
 	return "purchase_item";
 	}
 	
 	@GetMapping("/newpurchase")
 	public String newOrder(Model model) {
-		model.addAttribute("purchaseItem",new PurchaseItem());
+		model.addAttribute("purchase",new Purchase());
 		model.addAttribute("items",itemService.getAllItems());
-		return "purchaseItem";
+		return "purchase";
 	}
-	@GetMapping("/purchaseItem/new")
+	
+	@GetMapping("/purchase/new")
 	public String createPurchase(Model model)
 	{
-		model.addAttribute("purchaseItem",new PurchaseItem());
-		Map<String,Long> map=purchaseService.getNameAndCode();
+		model.addAttribute("purchase",new Purchase());
+		Map<String,Long> map=purchaseService.getNameCode();
 		model.addAttribute("map",map);
 		return "create_purchase";
 	}

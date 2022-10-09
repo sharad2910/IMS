@@ -8,11 +8,10 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="purchaseItems")
-public class PurchaseItem {
+@Table(name="purchases")
+public class Purchase {
 	
 	private long itemCode;
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long inwardId;

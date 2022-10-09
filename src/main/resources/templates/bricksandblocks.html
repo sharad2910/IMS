@@ -149,7 +149,7 @@
     <div class="subnav">
       <button class="subnavbtn">Services <i class="fa fa-caret-down"></i></button>
       <div class="subnav-content">
-        <a href="#deliver">Buy Products</a>
+         <a href="" th:href="@{/purchase_item}">Buy Products</a>
         <a href="" th:href="@{/order_sell}">Sell Products</a>
         <a href="" th:href="@{/items}">Add New Products</a>
       </div>
@@ -175,7 +175,12 @@
     </div>
   </div>
   <br>
-  
+   <div class ="container">	
+	<div class = "row">
+			<div class = "col-lg-3">
+				<a th:href = "@{/logout}" class = "btn btn-primary btn-sm mb-3">Logout</a>
+			</div>
+		</div></div>
   <h2 style="text-align:center;  font-size: 40px;">Brick and Block Products</h2>
   <div>
     <div style="margin-left: 45px; margin-right: 45px;">

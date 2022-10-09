@@ -74,24 +74,29 @@
 	<br>
 	<div class="container">
 		<div class="row">
+			<div class="col-lg-3">
+				<a th:href="@{/logout}" class="btn btn-primary btn-sm mb-3">Logout</a>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
 			<div
 				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-				<h1 class="text-center">Create New Order</h1>
+				<h1 class="text-center">Create New Purchase</h1>
 				<div class="card-body">
-					<form th:action="@{/purchaseItem}" th:object="${purchaseItem}" method="POST">
-						 <div class="form-group">
-							<label for="dropdown">Select Item</label> 
-							<select  style="width: 100%; height: 35px;"
-								th:field="*{itemCode}">
-								
-							<option value=0 disabled="disabled">please select the product</option>
-								<option th:each="item: ${map}" 
-								    th:value="${item.value}"
-									th:text="${item.key}" 
-									>
-								</option>
-							</select> 
-							
+					<form th:action="@{/purchase}" th:object="${purchase}"
+						method="POST">
+						<div class="form-group">
+							<label for="dropdown">Select Item</label> <select
+								style="width: 100%; height: 35px;" th:field="*{itemCode}">
+
+								<option value=0 disabled="disabled">please select the
+									product</option>
+								<option th:each="item: ${map}" th:value="${item.value}"
+									th:text="${item.key}"></option>
+							</select>
+
 						</div>
 
 						<div class="form-group">
@@ -108,15 +113,19 @@
 
 
 						<div class="box-footer">
-							<button type="submit" class="btn btn-primary">Submit</button>
-
+							<button type="submit" onclick="myFunction()" class="btn btn-primary">Submit</button>
+							<script>
+								function myFunction() {
+  								alert("Purchase Order has Placed Successfully");
+								}
+								</script>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 </body>
 
 </html>

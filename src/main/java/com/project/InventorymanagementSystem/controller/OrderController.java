@@ -23,7 +23,7 @@ public class OrderController {
 	@PostMapping("/order")
 	public String placeOrder(@ModelAttribute Order order)
 	{ 
-		System.out.println("order details: "+order);
+		
 		orderService.placeOrder(order);
 		return "order_sell";
 	}

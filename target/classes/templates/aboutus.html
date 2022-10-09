@@ -102,7 +102,7 @@
     <div class="subnav">
       <button class="subnavbtn">Services <i class="fa fa-caret-down"></i></button>
       <div class="subnav-content">
-        <a href="#deliver">Buy Products</a>
+        <a href="" th:href="@{/purchase_item}">Buy Products</a>
         <a href="" th:href="@{/order_sell}">Sell Products</a>
         <a href="" th:href="@{/items}">Add New Products</a>
       </div>
@@ -128,7 +128,12 @@
     </div>
   </div>
   <br>
-  
+   <div class ="container">	
+	<div class = "row">
+			<div class = "col-lg-3">
+				<a th:href = "@{/logout}" class = "btn btn-primary btn-sm mb-3">Logout</a>
+			</div>
+		</div></div>
 
   <h2 style="text-align:center;  font-size: 40px;">Team Members</h2>
   <div class="row">
@@ -221,7 +226,7 @@
   <div class="row">
     <div class="column">
       <div class="card">
-        <img src="images/team_members/bhavesh.jfif" alt="bhavesh" style="width:50%; border-radius: 50%; margin-left: 100px;">
+        <img src="images/team_members/bhavesh.jpeg" alt="bhavesh" style="width:50%; border-radius: 50%; margin-left: 100px;">
         <div class="container">
           <h2>Bhavesh Patwa</h2>
           <p class="title">Front End Developer</p>
@@ -235,7 +240,7 @@
 
     <div class="column">
       <div class="card">
-        <img src="" alt="avinash" style="width:50%; border-radius: 50%; margin-left: 100px;">
+        <img src="images/team_members/avinash.jpeg" alt="avinash" style="width:50%; border-radius: 50%; margin-left: 100px;">
         <div class="container">
           <h2>Avinash Gupta</h2>
           <p class="title">Backend Developer</p>
@@ -249,7 +254,7 @@
 
     <div class="column">
       <div class="card">
-        <img src="" alt="ganesh" style="width:50%; border-radius: 50%; margin-left: 100px;">
+        <img src="images/team_members/ganesh.jpeg" alt="ganesh" style="width:50%; border-radius: 50%; margin-left: 100px;">
         <div class="container">
           <h2>Ganesh Khairnar</h2>
           <p class="title">Backend Developer</p>
