@@ -30,7 +30,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected UserDetailsService userDetailsService() {
 		UserDetails admin = User.builder()
 				.username("ADMIN")
-				.password(passwordEncoder.encode("test123"))
+				.password(passwordEncoder.encode("admin123"))
 				.roles("ADMIN")
 				.build();
 		
